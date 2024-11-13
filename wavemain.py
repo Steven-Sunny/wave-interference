@@ -27,6 +27,7 @@ while True:
     except ValueError:
         print("Numbers only! Please enter a valid value.")
 
+#calculates all of the necessary variables
 angf1 = 2 * np.pi * feq1
 wlen1 = c / feq1
 k1 = (2 * np.pi) / wlen1
