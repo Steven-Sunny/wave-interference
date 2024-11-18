@@ -91,30 +91,20 @@ if(choice == "time"):
     #creates a popup for graphs that is 10in by 6in
     plt.figure(figsize=(10, 6))
 
-    #plots details of the first function
-    plt.subplot(3, 1, 1)
-    plt.plot(t, tfunc1)
-    plt.title("Signal 1 In Time Domain")
+   # Plot details of Signal 1
+    plt.plot(t, tfunc1, label="Signal 1", color="blue", linestyle='-')
+
+    # Plot details of Signal 2
+    plt.plot(t, tfunc2, label="Signal 2", color="green", linestyle='--')
+
+    # Plot details of the sum of Signal 1 and Signal 2
+    plt.plot(t, tfuncsum, label="Sum of Signals", color="red", linestyle='-.')
+
+    # Set title and labels
+    plt.title("Signals and Their Sum in Time Domain")
     plt.xlabel('Time (t)')
     plt.ylabel('Displacement')
     plt.grid(True)
-
-    #plots details of the second function
-    plt.subplot(3, 1, 2)
-    plt.plot(t, tfunc2)
-    plt.title("Signal 2 In Time Domain")
-    plt.xlabel('Time (t)')
-    plt.ylabel('Displacement')
-    plt.grid(True)
-
-    #plots details of the first and second function
-    plt.subplot(3, 1, 3)
-    plt.plot(t, tfuncsum)
-    plt.title("Sum of Signal 1 and Signal 2 In Time Domain")
-    plt.xlabel('Time (t)')
-    plt.ylabel('Displacement')
-    plt.grid(True)
-
     #shows popup with all the graphs, with nice, tight format
     plt.tight_layout()
     plt.show()
@@ -128,6 +118,34 @@ if(choice == "distance"):
             break
         except ValueError:
             print("Numbers only! Please enter a valid value.")
-#To do: Add the functionality for fixed time domain
-#Same as above just different variable names
-#Comment2
+        # Create distance domain values
+    x = np.linspace(0, 10, 1000)  # Distance from 0 to 10 meters
+
+    # Create values of the functions using the given formula in the assignment
+    xfunc1 = amp1 * np.sin(k1 * x + angf1 * fixedt + phase1)
+    xfunc2 = amp2 * np.sin(k2 * x + angf2 * fixedt + phase2)
+
+    # Sum of the two functions
+    xfuncsum = xfunc1 + xfunc2
+
+    # Creates a popup for graphs that is 10in by 6in
+    plt.figure(figsize=(10, 6))
+
+    # Plot details of the first function (Signal 1)
+    plt.plot(x, xfunc1, label="Signal 1", color="blue", linestyle='-')
+
+    # Plot details of the second function (Signal 2)
+    plt.plot(x, xfunc2, label="Signal 2", color="green", linestyle='--')
+
+    # Plot details of the sum of the first and second function
+    plt.plot(x, xfuncsum, label="Sum of Signals", color="red", linestyle='-.')
+
+    # Set title and labels
+    plt.title("Signals and Their Sum in Distance Domain")
+    plt.xlabel('Distance (x)')
+    plt.ylabel('Displacement')
+    plt.legend()
+    plt.grid(True)
+
+    plt.tight_layout()
+    plt.show()
