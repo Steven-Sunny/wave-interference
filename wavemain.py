@@ -82,8 +82,8 @@ if(choice == "time"):
     t = np.linspace(0, 1, 1000)
 
     #create values of the function using the given formula in assignment
-    tfunc1 = amp1 * np.sin(k1 * fixedx - angf1 * t + phase1)
-    tfunc2 = amp2 * np.sin(k2 * fixedx - angf2 * t + phase2)
+    tfunc1 = amp1 * np.sin((k1 * fixedx + phase1) - (angf1 * t))
+    tfunc2 = amp2 * np.sin((k2 * fixedx + phase2) - (angf2 * t))
 
     #sum of the 2 functions
     tfuncsum = tfunc1 + tfunc2
@@ -118,12 +118,13 @@ if(choice == "distance"):
             break
         except ValueError:
             print("Numbers only! Please enter a valid value.")
-        # Create distance domain values
-    x = np.linspace(0, 10, 1000)  # Distance from 0 to 10 meters
+    
+    # Create distance domain values
+    x = np.linspace(0, 1/(k1/10), 1000)  # Distance from 0 to 1 meters
 
     # Create values of the functions using the given formula in the assignment
-    xfunc1 = amp1 * np.sin(k1 * x - angf1 * fixedt + phase1)
-    xfunc2 = amp2 * np.sin(k2 * x - angf2 * fixedt + phase2)
+    xfunc1 = amp1 * np.sin(k1 * x + (-angf1 * fixedt + phase1))
+    xfunc2 = amp2 * np.sin(k2 * x + (-angf2 * fixedt + phase2))
 
     # Sum of the two functions
     xfuncsum = xfunc1 + xfunc2
