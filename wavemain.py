@@ -14,7 +14,10 @@ while True:
 while True:
     try:
         feq1 = float(input("Enter the frequency of your first function: "))
-        break
+        if(0 < feq1):
+            break
+        else:
+            print("The number must be greater than 0")
     except ValueError:
         print("Numbers only! Please enter a valid value.")
 while True:
@@ -42,7 +45,10 @@ while True:
 while True:
     try:
         feq2 = float(input("Enter the frequency of your second function: "))
-        break
+        if(0 < feq2):
+            break
+        else:
+            print("The number must be greater than 0")
     except ValueError:
         print("Numbers only! Please enter a valid value.")
 while True:
@@ -79,7 +85,7 @@ if(choice == "time"):
             print("Numbers only! Please enter a valid value.")
     
     #create time domain values
-    t = np.linspace(0, 1, 1000)
+    t = np.linspace(0, (k1+k2)*50000, 1000) # Time from 0 to (k1+k2)*50000
 
     #create values of the function using the given formula in assignment
     tfunc1 = amp1 * np.sin((k1 * fixedx + phase1) - (angf1 * t))
