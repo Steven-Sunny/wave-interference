@@ -13,8 +13,8 @@ while True:
         print("Numbers only! Please enter a valid value.")
 while True:
     try:
-        feq1 = float(input("Enter the frequency of your first function: "))
-        if(0 < feq1):
+        feq1 = float(input("Enter the frequency of your first function: "))  
+        if(0 < feq1): 
             break
         else:
             print("The number must be greater than 0")
@@ -110,6 +110,7 @@ if(choice == "time"):
     plt.title("Signals and Their Sum in Time Domain")
     plt.xlabel('Time (t)')
     plt.ylabel('Displacement')
+    plt.legend()
     plt.grid(True)
     #shows popup with all the graphs, with nice, tight format
     plt.tight_layout()
