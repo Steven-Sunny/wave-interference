@@ -85,7 +85,7 @@ if(choice == "time"):
             print("Numbers only! Please enter a valid value.")
     
     #create time domain values
-    t = np.linspace(0, (k1+k2)*50000, 1000) # Time from 0 to (k1+k2)*50000
+    t = np.linspace(0, 20/(angf1 + angf2), 1000) # Time from 0 to 20/(angf1 + angf2)
 
     #create values of the function using the given formula in assignment
     tfunc1 = amp1 * np.sin((k1 * fixedx + phase1) - (angf1 * t))
