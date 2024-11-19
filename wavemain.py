@@ -120,7 +120,7 @@ if(choice == "distance"):
             print("Numbers only! Please enter a valid value.")
     
     # Create distance domain values
-    x = np.linspace(0, 1/(k1/10), 1000)  # Distance from 0 to 1 meters
+    x = np.linspace(0, 20/(k1+k2), 1000)  # Distance from 0 to 20/(k1+k2)
 
     # Create values of the functions using the given formula in the assignment
     xfunc1 = amp1 * np.sin(k1 * x + (-angf1 * fixedt + phase1))
